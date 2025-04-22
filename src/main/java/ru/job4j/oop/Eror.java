@@ -24,10 +24,10 @@ public class Eror {
         Eror eror = new Eror();
         eror.info();
         System.out.println();
-        Eror one = new Eror (true, 2, "Исправить ошибки?");
+        Eror one = new Eror(true, 2, "Исправить ошибки?");
         one.info();
         System.out.println();
-        Eror two = new Eror (false, 0, "Нет ошибок!");
+        Eror two = new Eror(false, 0, "Нет ошибок!");
         two.info();
     }
 }
