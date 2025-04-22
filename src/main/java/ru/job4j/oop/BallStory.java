@@ -6,11 +6,9 @@ public class BallStory {
         Ball kolobok = new Ball();
         Hare hare = new Hare();
         Fox fox = new Fox();
-        System.out.print("Волк хотел сьесть колобка: ");
+
         wolf.tryEat(kolobok);
-        System.out.print("Заяц хотел сьесть колобка: ");
         hare.tryEat(kolobok);
-        System.out.print("Лиса хотела сьесть колобка: ");
         fox.tryEat(kolobok);
     }
 }
