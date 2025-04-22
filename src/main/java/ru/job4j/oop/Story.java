@@ -8,6 +8,5 @@ public class Story {
         girl.help(petya);
         wolf.eat(girl);
         petya.kill(wolf);
-
     }
 }
