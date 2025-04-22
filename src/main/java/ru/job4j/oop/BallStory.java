@@ -14,3 +14,4 @@ public class BallStory {
         fox.tryEat(kolobok);
     }
 }
+
