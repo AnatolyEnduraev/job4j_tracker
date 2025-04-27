@@ -12,3 +12,4 @@ class StartUI {
         System.out.println("Дата создания: " + formattedDate);
     }
 }
+
