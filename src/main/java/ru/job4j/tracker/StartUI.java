@@ -10,6 +10,8 @@ class StartUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String formattedDate = createdDate.format(formatter);
         System.out.println("Дата создания: " + formattedDate);
+        Item intern = new Item(1, "Anatoly");
+        System.out.println(intern);
     }
 }
 
