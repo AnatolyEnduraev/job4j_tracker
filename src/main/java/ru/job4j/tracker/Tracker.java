@@ -14,9 +14,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] result = new Item[size];
-        System.arraycopy(items, 0, result, 0, size);
-        return result;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
@@ -55,5 +53,9 @@ public class Tracker {
             return true;
         }
         return false;
+    }
+
+    public void delete(int id) {
+        items[indexOf(id)] = null;
     }
 }
