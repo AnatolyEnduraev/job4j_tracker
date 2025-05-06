@@ -6,3 +6,4 @@ public class Bus implements Vehicle {
         System.out.println(getClass().getSimpleName() + " передвигается: по трассе.");
     }
 }
+

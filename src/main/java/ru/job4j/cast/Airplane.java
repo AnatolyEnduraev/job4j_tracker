@@ -6,3 +6,4 @@ public class Airplane implements Vehicle {
         System.out.println(getClass().getSimpleName() + " передвигается: по воздуху.");
     }
 }
+
