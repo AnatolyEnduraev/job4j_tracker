@@ -8,6 +8,8 @@ public class HierarchyUsage {
         Transport transport = car;
         /* делаем приведение к типу родителя Object. */
         Object object = car;
+
+
         /* Приведение типа при создании объекта. */
         Object objectCar = new Car();
         /* Приведение типа за счет понижения по иерархии. */
