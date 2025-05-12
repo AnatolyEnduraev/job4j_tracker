@@ -19,14 +19,14 @@ public class ReplaceAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== Редактирование заявки ===");
-        int id = input.askInt("Введите id: ");
-        String name = input.askStr("Введите имя: ");
+        System.out.println("=== Редактирование заявки ===");
+        int id = input.askInt("Enter id: ");
+        String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            output.println("Заявка изменена успешно.");
+            System.out.println("Заявка изменена успешно.");
         } else {
-            output.println("Ошибка замены заявки.");
+            System.out.println("Ошибка замены заявки.");
         }
         return true;
     }
