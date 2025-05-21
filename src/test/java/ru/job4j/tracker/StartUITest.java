@@ -6,7 +6,6 @@ import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.input.MockInput;
 import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.output.StubOutput;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -66,6 +65,7 @@ class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать все заявки" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
         );
     }
 
@@ -91,6 +91,7 @@ class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать заявки по имени" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
         );
     }
 
@@ -115,6 +116,7 @@ class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать заявку по id" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
         );
     }
 
@@ -122,7 +124,7 @@ class StartUITest {
     void whenInvalidExit() {
         Output output = new StubOutput();
         Input input = new MockInput(
-                new String[] {"1", "0"}
+                new String[]{"10", "0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
