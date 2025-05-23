@@ -27,8 +27,6 @@ public class ValidateInput implements Input {
                 invalid = false;
             } catch (NumberFormatException nfe) {
                 output.println("Пожалуйста, введите корректные данные");
-            } catch (IllegalArgumentException iae) {
-                output.println("Пожалуйста, выберите действие из меню");
             }
         } while (invalid);
         return value;
