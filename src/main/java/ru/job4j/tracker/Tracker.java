@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
-        private final List<Item> items = new ArrayList<>();
-        private int ids = 1;
+    private final List<Item> items = new ArrayList<>();
+    private int ids = 1;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -19,9 +19,11 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
-        for (int i = 0; i < items.size(); i++) {
-            Item item = items.get(i);
-            if (item.getName().equals(key)) {
+        if (key == null) {
+            return result;
+        }
+        for (Item item : items) {
+            if (key.equals(item.getName())) {
                 result.add(item);
             }
         }
@@ -61,4 +63,3 @@ public class Tracker {
         return -1;
     }
 }
-
