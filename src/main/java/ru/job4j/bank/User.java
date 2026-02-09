@@ -3,8 +3,8 @@ package ru.job4j.bank;
 import java.util.Objects;
 
 public class User {
-    private String passport;
-    private String username;
+    private final String passport;
+    private final String username;
 
     public User(String passport, String username) {
         this.passport = passport;
@@ -15,16 +15,8 @@ public class User {
         return passport;
     }
 
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     @Override
