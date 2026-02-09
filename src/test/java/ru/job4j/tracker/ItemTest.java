@@ -25,7 +25,7 @@ public class ItemTest {
         expected.add(new Item(3, "Zebra"));
 
         // Сортируем испытуемый список с помощью нашего компаратора
-        Collections.sort(items, new ItemAscByName());
+        Collections.sort(items, new Item.ItemAscByName());
 
         // Сравниваем результат с ожидаемым списком
         assertThat(items).isEqualTo(expected);
@@ -48,7 +48,7 @@ public class ItemTest {
         expected.add(new Item(4, "Antelope"));
 
         // Сортируем испытуемый список с помощью нашего компаратора
-        Collections.sort(items, new ItemDescByName());
+        Collections.sort(items, new Item.ItemDescByName());
 
         // Сравниваем результат с ожидаемым списком
         assertThat(items).isEqualTo(expected);
