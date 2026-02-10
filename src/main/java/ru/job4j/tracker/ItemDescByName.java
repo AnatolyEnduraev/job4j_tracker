@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class ItemDescByName implements Comparator<Item> {
     @Override
-    public int compare(Item first, Item second) {
-        return second.getName().compareTo(first.getName());
+    public int compare(Item left, Item right) {
+        return right.getName().compareTo(left.getName());
     }
 }

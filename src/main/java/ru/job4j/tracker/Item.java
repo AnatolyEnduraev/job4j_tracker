@@ -54,20 +54,6 @@ public class Item {
                 + '}';
     }
 
-    public static class ItemAscByName implements Comparator<Item> {
-        @Override
-        public int compare(Item left, Item right) {
-            return left.getName().compareTo(right.getName());
-        }
-    }
-
-    public static class ItemDescByName implements Comparator<Item> {
-        @Override
-        public int compare(Item left, Item right) {
-            return right.getName().compareTo(left.getName());
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o)  {
@@ -85,5 +71,4 @@ public class Item {
         return Objects.hash(id, name);
     }
 }
-
 
