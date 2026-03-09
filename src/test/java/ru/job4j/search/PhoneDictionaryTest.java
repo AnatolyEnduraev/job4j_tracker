@@ -1,29 +1,62 @@
 package ru.job4j.search;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
+import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PhoneDictionaryTest {
+class PhoneDictionaryTest {
+
     @Test
-    public void whenFindByName() {
+    void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
-        phones.add(
-                new Person("Petr", "Arsentev", "534872", "Bryansk")
-        );
-        ArrayList<Person> persons = phones.find("Petr");
-        assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
+        phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
+
+        List<Person> result = phones.find("Petr");
+        assertThat(result)
+                .hasSize(1)
+                .first()
+                .extracting(Person::getSurname)
+                .isEqualTo("Arsentev");
     }
 
     @Test
-    public void whenFindByKeyThenEmptyList() {
+    void whenFindBySurname() {
         PhoneDictionary phones = new PhoneDictionary();
-        phones.add(
-                new Person("Petr", "Arsentev", "534872", "Bryansk")
-        );
-        ArrayList<Person> persons = phones.find("eao");  // нет ни в одном поле
-        assertThat(persons).isEmpty();
+        phones.add(new Person("Ivan", "Ivanov", "12345", "Moscow"));
+        phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
+
+        List<Person> result = phones.find("Arsentev");
+        assertThat(result)
+                .hasSize(1)
+                .first()
+                .extracting(Person::getName)
+                .isEqualTo("Petr");
+    }
+
+    @Test
+    void whenFindByPhone() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
+
+        List<Person> result = phones.find("534");
+        assertThat(result).hasSize(1);
+    }
+
+    @Test
+    void whenFindByAddress() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
+
+        List<Person> result = phones.find("Bry");
+        assertThat(result).hasSize(1);
+    }
+
+    @Test
+    void whenFindByKeyThenEmptyList() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
+
+        List<Person> result = phones.find("eao");
+        assertThat(result).isEmpty();
     }
 }

@@ -4,13 +4,13 @@ public class Person {
     private String name;
     private String surname;
     private String phone;
-    private String adress;
+    private String address;
 
     public Person(String name, String surname, String phone, String adress) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
-        this.adress = adress;
+        this.address = adress;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class Person {
         return phone;
     }
 
-    public  String getAdress() {
-        return adress;
+    public  String getAddress() {
+        return address;
     }
 }
