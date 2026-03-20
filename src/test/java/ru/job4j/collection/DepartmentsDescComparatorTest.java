@@ -11,10 +11,9 @@ class DepartmentsDescComparatorTest {
     void whenSortDepartmentsThenCorrectOrder() {
         List<String> input = List.of("K2", "K2/SK1", "K1", "K1/SK1", "K2/SK2");
         List<String> expected = List.of("K2", "K2/SK2", "K2/SK1", "K1", "K1/SK1");
-
         List<String> sorted = new java.util.ArrayList<>(input);
         sorted.sort(new DepartmentsDescComparator());
-
         assertThat(sorted).isEqualTo(expected);
     }
 }
+
