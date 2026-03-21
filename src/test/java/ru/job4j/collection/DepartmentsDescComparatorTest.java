@@ -1,19 +1,42 @@
 package ru.job4j.collection;
 
 import org.junit.jupiter.api.Test;
-import java.util.Arrays;
-import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DepartmentsDescComparatorTest {
+    @Test
+    void compare() {
+        int result = new DepartmentsDescComparator().compare(
+                "K2/SK1/SSK2",
+                "K2/SK1/SSK1"
+        );
+        assertThat(result).isGreaterThan(0);
+    }
 
     @Test
-    void whenSortDepartmentsThenCorrectOrder() {
-        List<String> input = List.of("K2", "K2/SK1", "K1", "K1/SK1", "K2/SK2");
-        List<String> expected = List.of("K2", "K2/SK2", "K2/SK1", "K1", "K1/SK1");
-        List<String> sorted = new java.util.ArrayList<>(input);
-        sorted.sort(new DepartmentsDescComparator());
-        assertThat(sorted).isEqualTo(expected);
+    void whenUpDepartmentGoBefore() {
+        int result = new DepartmentsDescComparator().compare(
+                "K2",
+                "K2/SK1"
+        );
+        assertThat(result).isLessThan(0);
+    }
+
+    @Test
+    void whenFirstDepartmentIsDifferentThenAsc() {
+        int result = new DepartmentsDescComparator().compare(
+                "K2/SK1/SSK1",
+                "K1/SK1/SSK2"
+        );
+        assertThat(result).isLessThan(0);
+    }
+
+    @Test
+    void whenFirstDepartmentIsDifferentThenDesc() {
+        int result = new DepartmentsDescComparator().compare(
+                "K1/SK1/SSK1",
+                "K2/SK1"
+        );
+        assertThat(result).isGreaterThan(0);
     }
 }
-

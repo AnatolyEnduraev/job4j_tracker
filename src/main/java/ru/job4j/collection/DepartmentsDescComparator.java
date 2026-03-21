@@ -3,19 +3,21 @@ package ru.job4j.collection;
 import java.util.Comparator;
 
 public class DepartmentsDescComparator implements Comparator<String> {
-
     @Override
-    public int compare(String o1, String o2) {
-        String[] parts1 = o1.split("/");
-        String[] parts2 = o2.split("/");
+    public int compare(String left, String right) {
+        String[] leftParts = left.split("/");
+        String[] rightParts = right.split("/");
 
-        int minLength = Math.min(parts1.length, parts2.length);
+        int minLength = Math.min(leftParts.length, rightParts.length);
         for (int i = 0; i < minLength; i++) {
-            int levelCompare = parts2[i].compareTo(parts1[i]);
-            if (levelCompare != 0) {
-                return levelCompare;
+            if (!leftParts[i].equals(rightParts[i])) {
+                if (i == 0) {
+                    return rightParts[i].compareTo(leftParts[i]);
+                } else {
+                    return leftParts[i].compareTo(rightParts[i]);
+                }
             }
         }
-        return Integer.compare(parts1.length, parts2.length);
+        return leftParts.length - rightParts.length;
     }
 }
