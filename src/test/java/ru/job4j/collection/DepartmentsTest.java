@@ -83,3 +83,4 @@ class DepartmentsTest {
         assertThat(input).containsSequence(expected);
     }
 }
+
